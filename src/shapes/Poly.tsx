@@ -24,7 +24,7 @@ function parseCoord(token: string): Point | string[] {
     return {x: x, y: y};
 }
 
-export function PolyConstructor(tokens: string[], key: number): [JSX.Element | undefined, string[]] {
+export function PolyConstructor(tokens: string[], colour: string, key: number): [JSX.Element | undefined, string[]] {
     if (tokens.length <= 3) {
         return [undefined, ["Polygon should be passed at least 3 coordinates"]];
     }
@@ -41,5 +41,5 @@ export function PolyConstructor(tokens: string[], key: number): [JSX.Element | u
         }
     }
 
-    return [<polygon points={`${points.map(p => `${p.x},${p.y}`).join(' ')}`} fill="#12ab56" key={key}/>, errors];
+    return [<polygon points={`${points.map(p => `${p.x},${p.y}`).join(' ')}`} fill={colour} key={key}/>, errors];
 }
