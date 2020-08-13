@@ -37,7 +37,7 @@ export function parseShapes(input: string, getColour: (i: number) => string): [J
         let comp : undefined | JSX.Element;
         let err : string[] = [];
 
-        switch (tokens[0]) {
+        switch (tokens[0].toLowerCase()) {
             case "r":
                 [comp, err] = RectConstructor(tokens, getColour(i), i);
                 break;
